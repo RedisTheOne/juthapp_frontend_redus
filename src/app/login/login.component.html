@@ -1,0 +1,14 @@
+<div id="bg"></div>
+
+<div id="login">
+  <img src="../../assets/login/juthVoda.png" alt="" id="vodaJuth">
+  <div class="styled-input">
+    <input id="usernameInput" (blur)="usernameBlured()" (click)="usernameFocused()" type="text">
+    <label id="usernameLabel" (click)="usernameFocused()">Username</label>
+  </div>
+  <div class="styled-input">
+    <input id="passwordInput" (blur)="passwordBlured()" (click)="passwordFocused()" type="password">
+    <label (click)="passwordFocused()" id="passwordLabel">Password</label>
+  </div>
+  <input type="submit" id="submit-butt">
+</div>

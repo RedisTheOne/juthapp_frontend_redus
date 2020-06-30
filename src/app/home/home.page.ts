@@ -10,21 +10,27 @@ export class HomePage {
 
   constructor(private router: Router) {}
 
-  isRotated:boolean = false;
+  isActive:boolean = false;
 
   goMarket() {
     this.router.navigate(['juthapp/gigamarket']);
   }
 
-  rotate() {
-    if(this.isRotated == false) {
-      document.getElementById('round').classList.remove('unrotate');
-      document.getElementById('round').classList.add('rotate');
+  activate() {
+    if(this.isActive == false) {
+      document.getElementById('round').classList.remove('inactive');
+      document.getElementById('round').classList.add('activated');
+
+      document.getElementById('preview').classList.remove('exit');
+      document.getElementById('preview').classList.add('enter');
     } else {
-      document.getElementById('round').classList.remove('rotate');
-      document.getElementById('round').classList.add('unrotate');
+      document.getElementById('round').classList.remove('activated');
+      document.getElementById('round').classList.add('inactive');
+
+      document.getElementById('preview').classList.remove('enter');
+      document.getElementById('preview').classList.add('exit');
     }
     
-    this.isRotated = !this.isRotated;
+    this.isActive = !this.isActive;
   }
 }
