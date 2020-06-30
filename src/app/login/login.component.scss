@@ -17,7 +17,6 @@
 
    position: absolute;
    width: 80%;
-   height: 50%;
 
    top: 50%;
 
@@ -37,10 +36,9 @@
 
 .styled-input {
    position: relative;
-   margin-top: 18%;
-   margin-bottom: 15%;
+   margin-top: 15%;
    margin-left: 8%;
-   color: white
+   color: white;
 }
 
 .styled-input input[type=text], input[type=password] {
@@ -62,20 +60,22 @@
 
 #submit-butt {
    width: 25%;
-   position: absolute;
-
-   top: 75%;
-   right: 20%;
-
-   transform: translate(25%);
 
    padding-top: 5px;
    padding-bottom: 5px;
 
    border-radius: 5px;
    outline: none;
+   box-shadow: none;
+
+   margin-left: 65%;
+   margin-bottom: 5%;
 }
 
-.pressed {
+#sign-up-text {
+   color: white;
+   width: fit-content;
+   margin: auto;
 
+   margin-bottom: 10px;
 }
