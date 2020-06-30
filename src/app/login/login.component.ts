@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,12 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(localStorage.getItem('TOKEN'))
+      this.router.navigate(['juthapp/']);
+  }
 
   usernameFocused() {
     document.getElementById('usernameLabel').style.top = '-20px';
@@ -44,7 +48,11 @@ export class LoginComponent implements OnInit {
   formSubmited() {
     const username = (<HTMLInputElement>document.getElementById('usernameInput')).value;
     const password = (<HTMLInputElement>document.getElementById('passwordInput')).value;
-    this.loginService.getUsers(username, password);
+
+    if(/\S/.test(username) && /\S/.test(password))
+      this.loginService.getUsers(username, password);
+    else
+      alert('Please fill required fields!');
   }
 
 }
