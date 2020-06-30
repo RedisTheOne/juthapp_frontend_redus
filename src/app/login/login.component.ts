@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {}
 
@@ -38,6 +39,12 @@ export class LoginComponent implements OnInit {
       document.getElementById('passwordLabel').style.top = '5px';
       document.getElementById('passwordLabel').style.color = "white";
     }
+  }
+
+  formSubmited() {
+    const username = (<HTMLInputElement>document.getElementById('usernameInput')).value;
+    const password = (<HTMLInputElement>document.getElementById('passwordInput')).value;
+    this.loginService.getUsers(username, password);
   }
 
 }
