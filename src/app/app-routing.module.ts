@@ -25,6 +25,15 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'friends',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./friends/friends.module').then( m => m.FriendsModule)
+      }
+    ]
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

@@ -1,0 +1,58 @@
+<div [ngSwitch]="view" class="friends-container">
+    <div class="header">
+        <p>{{title}}</p>
+    </div>
+    <div *ngSwitchCase="'FRIENDS_LIST'">
+        <div class="friend-card">
+            <div class="right">
+                <img src="../../assets/ranks/s_rank.png" alt="">
+                <p>eljo</p>
+            </div>
+            <p>20000</p>
+        </div>
+        <div class="friend-card">
+            <div class="right">
+                <img src="../../assets/ranks/s_rank.png" alt="">
+                <p>redis</p>
+            </div>
+            <p>30000</p>
+        </div>
+    </div>
+    <div *ngSwitchCase="'ADD_FRIEND'">
+        <div class="search_bar">
+            <input type="text">
+            <i class="fa fa-search icon"></i>
+        </div>
+        <div class="friend-card">
+            <p>redis</p>
+        </div>
+    </div>
+    <div *ngSwitchCase="'FRIEND_REQUESTS'">
+        <div class="friend-card friend-request-card">
+            <p style="flex: 1">redis</p>
+            <div>
+                <i class="fa fa-check icon" style="padding-right: 10px"></i>
+                <i class="fa fa-times icon"></i>
+            </div>
+        </div>
+        <div class="friend-card friend-request-card">
+            <p style="flex: 1">rakel</p>
+            <div>
+                <i class="fa fa-check icon" style="padding-right: 10px"></i>
+                <i class="fa fa-times icon"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-tabs">
+    <div (click)="friendsListButtonClicked()" class="active" id="friendsList">
+        <i class="fa fa-list-alt icon"></i>
+    </div>
+    <div (click)="addFriendButtonClicked()" id="addFriend">
+        <i class="fa fa-plus-circle icon"></i>
+    </div>
+    <div (click)="friendReqetsButtonClicked()" id="friendRequests">
+        <i class="fa fa-users icon"></i>
+    </div>
+</div>
